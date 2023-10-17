@@ -13,9 +13,15 @@ public class UserController {
     @GetMapping(value = "/user/{id}")
     public UserResponse getUserByID(@PathVariable String id) {
         // Validate input
+        validateInput(id);
+
         // TODO next
         // Return response :: success only
         return new UserResponse(1, "Somkiat");
+    }
+
+    private void validateInput(String id) {
+        throw new RequestForGetUserByIdException(id);
     }
 
 }

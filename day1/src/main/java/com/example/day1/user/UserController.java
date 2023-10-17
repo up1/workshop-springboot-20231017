@@ -21,7 +21,9 @@ public class UserController {
     }
 
     private void validateInput(String id) {
-        throw new RequestForGetUserByIdException(id);
+        if("2".equals(id)) {
+            throw new RequestForGetUserByIdException(id);
+        }
     }
 
 }

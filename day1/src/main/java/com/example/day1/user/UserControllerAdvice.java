@@ -11,4 +11,9 @@ public class UserControllerAdvice {
         return new MyErrorResponse(10000, "Input invalid");
     }
 
+    @ExceptionHandler(UserNotFoundException.class)
+    public MyErrorResponse userNotFound(Exception e) {
+        return new MyErrorResponse(404, e.getMessage());
+    }
+
 }

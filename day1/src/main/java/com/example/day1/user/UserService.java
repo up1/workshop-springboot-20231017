@@ -18,7 +18,7 @@ public class UserService {
             return new UserResponse(result.get().getId(),
                     result.get().getName());
         }
-        throw new RuntimeException("User not found");
+        throw new UserNotFoundException("User id=" + id + " not found");
     }
 
 }

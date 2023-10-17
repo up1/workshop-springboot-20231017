@@ -42,4 +42,15 @@ class UserControllerTest {
         assertEquals(10000, response.getCode());
         assertEquals("Input invalid", response.getDescription());
     }
+
+    @Test
+    @DisplayName("User not found id = 3")
+    void case03() {
+        // Act
+        MyErrorResponse response = testRestTemplate.getForObject(
+                "/api/v1/user/3", MyErrorResponse.class);
+        // Assert
+        assertEquals(404, response.getCode());
+        assertEquals("User id=3 not found", response.getDescription());
+    }
 }

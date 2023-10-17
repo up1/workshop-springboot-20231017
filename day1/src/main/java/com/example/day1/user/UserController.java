@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 public class UserController {
 
-    @GetMapping("/user/{id}")
-    public UserResponse getUserByID(@PathVariable int id) {
+    @GetMapping(value = "/user/{id}")
+    public UserResponse getUserByID(@PathVariable String id) {
+        // Validate input
+        // TODO next
+        // Return response :: success only
         return new UserResponse(1, "Somkiat");
     }
 

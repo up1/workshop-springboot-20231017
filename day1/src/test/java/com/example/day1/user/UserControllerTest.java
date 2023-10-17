@@ -15,9 +15,15 @@ class UserControllerTest {
     @Autowired
     private TestRestTemplate testRestTemplate;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Test
     @DisplayName("Success for get user by id = 1")
     void case01() {
+        // Arrange => Initial data for test
+        MyUser u1 = new MyUser(1, "Somkiat");
+        userRepository.save(u1);
         // Act
         UserResponse response = testRestTemplate.getForObject(
                 "/api/v1/user/1", UserResponse.class);

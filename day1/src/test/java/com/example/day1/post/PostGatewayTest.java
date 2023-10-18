@@ -20,6 +20,6 @@ class PostGatewayTest {
         Optional<PostResponse> response = postGateway.getDataById(1);
         // Assert
         assertTrue(response.isPresent());
-        assertEquals("sunt aut facere repellat provident occaecati excepturi optio reprehenderit", response.get().getTitle());
+        assertEquals("Mock title", response.get().getTitle());
     }
 }

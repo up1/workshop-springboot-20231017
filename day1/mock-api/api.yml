@@ -1,0 +1,8 @@
+-  request:
+      url: /posts/1
+      method: GET
+   response:
+    - status: 200
+      headers:
+         content-type: application/json
+      file: responseData.json

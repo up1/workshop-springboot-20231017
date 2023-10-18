@@ -18,7 +18,7 @@ public class PostGateway {
             PostResponse response = restTemplate.getForObject(url, PostResponse.class);
             return Optional.ofNullable(response);
         } catch (Exception e) {
-            return  Optional.empty();
+            return Optional.empty();
         }
     }
 

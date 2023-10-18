@@ -29,4 +29,10 @@ public class UserController {
         }
     }
 
+    @GetMapping(value = "/tx")
+    public String getTx() {
+        userService.process();
+        return "TX";
+    }
+
 }

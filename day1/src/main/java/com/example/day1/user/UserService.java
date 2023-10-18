@@ -27,7 +27,7 @@ public class UserService {
         step2(1);
     }
 
-    @Transactional(rollbackOn = UserController.class)
+    @Transactional(rollbackOn = UserNotFoundException.class)
     public void step1(int id) {
         userRepository.findById(id); //ok
         userRepository.findById(id); // not ok

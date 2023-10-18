@@ -1,5 +1,6 @@
 package com.example.day1.user;
 
+import io.micrometer.observation.annotation.Observed;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping(value = "/user/{id}")
+    @Observed(name = "getUserByID", contextualName = "getUserByID")
     public UserResponse getUserByID(@PathVariable String id) {
         // Validate input
         validateInput(id);

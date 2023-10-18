@@ -1,5 +1,6 @@
 package com.example.day1.user;
 
+import io.micrometer.observation.annotation.Observed;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,9 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
 
+    @Observed(name = "get", contextualName = "get-user-by-id")
     public UserResponse get(int id) {
+        process();
         userRepository.findById(id);
         Optional<MyUser> result = userRepository.findById(id);
         if(result.isPresent()) {

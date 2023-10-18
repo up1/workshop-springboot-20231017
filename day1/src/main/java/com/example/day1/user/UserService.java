@@ -12,7 +12,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     public UserResponse get(int id) {
-//        return new UserResponse(1, "Somkiat");
+        userRepository.findById(id);
         Optional<MyUser> result = userRepository.findById(id);
         if(result.isPresent()) {
             return new UserResponse(result.get().getId(),

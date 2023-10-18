@@ -15,8 +15,8 @@ public class UserService {
 
     @Observed(name = "get", contextualName = "get-user-by-id")
     public UserResponse get(int id) {
-        process();
-        userRepository.findById(id);
+//        process();
+//        userRepository.findById(id);
         Optional<MyUser> result = userRepository.findById(id);
         if(result.isPresent()) {
             return new UserResponse(result.get().getId(),

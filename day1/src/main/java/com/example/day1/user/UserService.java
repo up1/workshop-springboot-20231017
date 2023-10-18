@@ -23,17 +23,17 @@ public class UserService {
     }
 
     public void process(){
-        step1();
-        step2();
+        step1(1);
+        step2(1);
     }
 
-    @Transactional
-    public void step1() {
-        userRepository.findById(id);
-        userRepository.findById(id);
+    @Transactional(rollbackOn = UserController.class)
+    public void step1(int id) {
+        userRepository.findById(id); //ok
+        userRepository.findById(id); // not ok
     }
 
-    public void step2() {
+    public void step2(int id) {
         userRepository.findById(id);
         userRepository.findById(id);
     }
